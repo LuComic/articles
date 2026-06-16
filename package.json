@@ -1,0 +1,25 @@
+{
+  "name": "news",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {
+    "dev:users": "bun run --cwd apps/users dev",
+    "pipeline": "python3 services/news-pipeline/run_pipeline.py",
+    "pipeline:urls": "python3 services/news-pipeline/run_pipeline.py --skip-source-finding",
+    "pipeline:sources": "python3 services/news-pipeline/run_pipeline.py --sources-only",
+    "pipeline:check": "python3 services/news-pipeline/run_pipeline.py --check",
+    "check:markdown": "bun run --cwd packages/markdown-extraction check",
+    "test:markdown": "bun run --cwd packages/markdown-extraction test"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

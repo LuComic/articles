@@ -1,0 +1,222 @@
+[
+  {
+    "url": "https://www.valitsus.ee/uudised/peaministrikandidaadi-kristen-michali-kone-valitsuse-moodustamise-kohta",
+    "source_domain": "valitsus.ee",
+    "source_name": "Vabariigi Valitsus",
+    "route_url": "https://www.valitsus.ee/otsing?filters%5Btype%5D=Uudis&filters%5Bkeyword%5D=Peaministri%20k%C3%B5ned%2CKristen%20Michal&sort=created&page=1",
+    "route_type": "news",
+    "discovered_title": "Peaministrikandidaadi kõne Riigikogu ees",
+    "discovered_published_at": null,
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "https://fin.ee/uudised/riigihangete-maht-uletas-2025-aastal-kaheksa-miljardi-euro-piiri",
+    "source_domain": "fin.ee",
+    "source_name": "Rahandusministeerium",
+    "route_url": "https://www.fin.ee/riigihanked-riigiabi-osalused/riigihanked/uudised",
+    "route_type": "news",
+    "discovered_title": "Riigihangete maht ületas 2025. aastal kaheksa miljardi euro piiri",
+    "discovered_published_at": null,
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "https://www.justdigi.ee/uudised/eesti-ja-saksamaa-allkirjastasid-partnerlusleppe",
+    "source_domain": "justdigi.ee",
+    "source_name": "Justiits- ja Digiministeerium",
+    "route_url": "https://www.justdigi.ee/otsing?search_term=&f%5B0%5D=type%3Anews&f%5B1%5D=type%3Anews",
+    "route_type": "news",
+    "discovered_title": "Eesti ja Saksamaa allkirjastasid partnerlusleppe",
+    "discovered_published_at": null,
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "https://kliimaministeerium.ee/uudised/hoonete-energiamargised-muutuvad-tapsemaks",
+    "source_domain": "kliimaministeerium.ee",
+    "source_name": "Kliimaministeerium",
+    "route_url": "https://www.kliimaministeerium.ee/rss.xml",
+    "route_type": "rss",
+    "discovered_title": "Hoonete energiamärgised muutuvad täpsemaks",
+    "discovered_published_at": "Fri, 29 May 2026 11:52:14 +0300",
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "https://www.politsei.ee/et/uudised/liiklusinfo-04-06-2026-13554",
+    "source_domain": "politsei.ee",
+    "source_name": "Politsei- ja Piirivalveamet",
+    "route_url": "https://www.politsei.ee/et/uudised",
+    "route_type": "news",
+    "discovered_title": "Liiklusinfo 04.06.2026",
+    "discovered_published_at": null,
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "https://www.rescue.ee/et/uudised/demineerijad-kontrollisid-narvas-kahtlast-kotti-3507",
+    "source_domain": "rescue.ee",
+    "source_name": "Päästeamet",
+    "route_url": "https://www.rescue.ee/et/uudised",
+    "route_type": "news",
+    "discovered_title": "Demineerijad kontrollisid Narvas kahtlast kotti",
+    "discovered_published_at": null,
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "https://transpordiamet.ee/uudised/el-i-sanktsioonimeetmed-seoses-venemaa-tegevusega",
+    "source_domain": "transpordiamet.ee",
+    "source_name": "Transpordiamet",
+    "route_url": "https://transpordiamet.ee/otsing?type=Uudis",
+    "route_type": "news",
+    "discovered_title": "EL-i sanktsioonimeetmed",
+    "discovered_published_at": null,
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "https://stat.ee/et/uudised/tarbijahinnaindeks-tousis-mais-aastaga-37",
+    "source_domain": "stat.ee",
+    "source_name": "Statistikaamet",
+    "route_url": "https://www.stat.ee/rss",
+    "route_type": "rss",
+    "discovered_title": "Tarbijahinnaindeks tõusis mais aastaga 3,7%",
+    "discovered_published_at": "Fri, 05 Jun 2026 05:00:00 +0000",
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "https://keskkonnaamet.ee/uudised/keskkonnaamet-pesitsusrahu-kaitseks-peatanud-kaks-raiet-kaitsealadel",
+    "source_domain": "keskkonnaamet.ee",
+    "source_name": "Keskkonnaamet",
+    "route_url": "https://www.keskkonnaamet.ee/rss",
+    "route_type": "rss",
+    "discovered_title": "Keskkonnaamet on pesitsusrahu kaitseks peatanud kaks raiet kaitsealadel",
+    "discovered_published_at": "Thu, 04 Jun 2026 08:52:40 +0300",
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "https://www.konkurentsiamet.ee/uudised/2026-aasta-martsi-energiaturgude-ulevaade",
+    "source_domain": "konkurentsiamet.ee",
+    "source_name": "Konkurentsiamet",
+    "route_url": "https://www.konkurentsiamet.ee/otsing?f%5B0%5D=type%3Anews",
+    "route_type": "news",
+    "discovered_title": "2026. aasta märtsi energiaturgude ülevaade",
+    "discovered_published_at": null,
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "http://www.mnt.ee/uudised/el-i-sanktsioonimeetmed-seoses-venemaa-tegevusega",
+    "source_domain": "mnt.ee",
+    "source_name": "RIHA system",
+    "route_url": "http://www.mnt.ee/uudised",
+    "route_type": "news",
+    "discovered_title": "EL-i sanktsioonimeetmed",
+    "discovered_published_at": null,
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "https://webware.ee/infohalduse-konverents-tehisaru-muudab-head-protsessid-paremaks-kuid-halvad-veelgi-halvemaks",
+    "source_domain": "webware.ee",
+    "source_name": "RIHA system",
+    "route_url": "https://webware.ee/feed",
+    "route_type": "rss",
+    "discovered_title": "Infohalduse konverents: tehisaru muudab head protsessid paremaks, kuid halvad veelgi halvemaks",
+    "discovered_published_at": "Thu, 07 May 2026 09:22:57 +0000",
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "https://www.fin.ee/uudised/vaidlustuste-arv-riigihangetes-kasvas-2025-aastal-16",
+    "source_domain": "fin.ee",
+    "source_name": "Rahandusministeerium",
+    "route_url": "https://www.fin.ee/riigihanked-riigiabi-osalused/riigihanked/uudised",
+    "route_type": "news",
+    "discovered_title": "Vaidlustuste arv riigihangetes kasvas 2025. aastal 16%",
+    "discovered_published_at": null,
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "https://www.justdigi.ee/uudised/suvel-voib-lapse-mure-jaada-varju-marka-ja-aita",
+    "source_domain": "justdigi.ee",
+    "source_name": "Justiits- ja Digiministeerium",
+    "route_url": "https://www.justdigi.ee/otsing?search_term=&f%5B0%5D=type%3Anews&f%5B1%5D=type%3Anews",
+    "route_type": "news",
+    "discovered_title": "Suvel võib lapse mure jääda varju – märka ja aita",
+    "discovered_published_at": null,
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "https://kliimaministeerium.ee/uudised/toostusheite-seaduse-muudatused-vahendavad-halduskoormust-tagades-samas-keskkonnakaitse",
+    "source_domain": "kliimaministeerium.ee",
+    "source_name": "Kliimaministeerium",
+    "route_url": "https://www.kliimaministeerium.ee/rss.xml",
+    "route_type": "rss",
+    "discovered_title": "Tööstusheite seaduse muudatused vähendavad halduskoormust tagades samas keskkonnakaitse kõrge taseme ",
+    "discovered_published_at": "Fri, 29 May 2026 09:59:37 +0300",
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "https://www.politsei.ee/et/uudised/jaergmisel-naedala-rahvusvahelise-tippkohtumise-ajal-on-tallinnas-mitmed-liikluspiirangud-13550",
+    "source_domain": "politsei.ee",
+    "source_name": "Politsei- ja Piirivalveamet",
+    "route_url": "https://www.politsei.ee/et/uudised",
+    "route_type": "news",
+    "discovered_title": "JÃ¤rgmisel nÃ¤dala rahvusvahelise tippkohtumise ajal on Tallinnas mitmed liikluspiirangud",
+    "discovered_published_at": null,
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "https://www.rescue.ee/et/uudised/pressiteated",
+    "source_domain": "rescue.ee",
+    "source_name": "Päästeamet",
+    "route_url": "https://www.rescue.ee/et/uudised",
+    "route_type": "news",
+    "discovered_title": "Pressiteated",
+    "discovered_published_at": null,
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "https://www.transpordiamet.ee/uudised/el-i-sanktsioonimeetmed-seoses-venemaa-tegevusega",
+    "source_domain": "transpordiamet.ee",
+    "source_name": "Transpordiamet",
+    "route_url": "https://www.transpordiamet.ee/et/uudised",
+    "route_type": "news",
+    "discovered_title": "EL-i sanktsioonimeetmed",
+    "discovered_published_at": null,
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "https://stat.ee/et/uudised/tootleva-toostuse-tootmine-vahenes-aprillis-kolmandat-kuud",
+    "source_domain": "stat.ee",
+    "source_name": "Statistikaamet",
+    "route_url": "https://www.stat.ee/rss",
+    "route_type": "rss",
+    "discovered_title": "Töötleva tööstuse tootmine vähenes aprillis kolmandat kuud",
+    "discovered_published_at": "Thu, 04 Jun 2026 05:00:00 +0000",
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  },
+  {
+    "url": "https://keskkonnaamet.ee/uudised/tana-algab-peipsi-jarve-vanadest-vorkudest-puhastamine",
+    "source_domain": "keskkonnaamet.ee",
+    "source_name": "Keskkonnaamet",
+    "route_url": "https://www.keskkonnaamet.ee/rss",
+    "route_type": "rss",
+    "discovered_title": "Täna algab Peipsi järve vanadest võrkudest puhastamine",
+    "discovered_published_at": "Wed, 03 Jun 2026 08:36:03 +0300",
+    "discovered_at": "2026-06-07T00:59:52+03:00",
+    "discovery_method": "source_discovery_latest_item"
+  }
+]

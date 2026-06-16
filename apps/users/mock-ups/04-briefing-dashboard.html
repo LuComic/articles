@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mockup 04 - Briefing Dashboard</title>
+  <style>
+    :root {
+      color: #151515;
+      background: #f7f7f4;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f7f7f4;
+    }
+
+    .shell {
+      width: min(1220px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 20px 0 42px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 24px;
+      min-height: 58px;
+      border-bottom: 1px solid #d7d7d0;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    .search {
+      height: 34px;
+      background: #ecece6;
+      border: 1px solid #deded5;
+      border-radius: 4px;
+    }
+
+    .time {
+      color: #6d6d66;
+      font-size: 13px;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: end;
+      padding: 28px 0;
+      border-bottom: 1px solid #d7d7d0;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 56px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+    }
+
+    .tab {
+      padding: 8px 12px;
+      border: 1px solid #d7d7d0;
+      border-radius: 4px;
+      color: #595952;
+      font-size: 13px;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 28px;
+      padding-top: 28px;
+    }
+
+    .lead {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 24px;
+      min-height: 290px;
+      border-bottom: 1px solid #d7d7d0;
+      padding-bottom: 28px;
+    }
+
+    .image {
+      background: #deded6;
+      border: 1px solid #d1d1c8;
+      border-radius: 3px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 36px;
+      line-height: 1.03;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0;
+      color: #66665f;
+      line-height: 1.5;
+    }
+
+    .feed {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0 24px;
+      margin-top: 4px;
+    }
+
+    article {
+      padding: 22px 0;
+      border-bottom: 1px solid #d7d7d0;
+    }
+
+    .meta {
+      margin-bottom: 8px;
+      color: #77776f;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    aside {
+      border-left: 1px solid #d7d7d0;
+      padding-left: 28px;
+    }
+
+    .ranked article {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 14px;
+    }
+
+    .num {
+      color: #9a9a91;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 880px) {
+      header,
+      .intro,
+      main,
+      .lead,
+      .feed {
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        border-left: 0;
+        padding-left: 0;
+      }
+
+      .search {
+        display: none;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+    }
+
+    .theme-switcher {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 20;
+      display: flex;
+      gap: 6px;
+      padding: 6px;
+      background: color-mix(in srgb, var(--paper, #f7f7f4) 92%, white);
+      border: 1px solid var(--line, #d7d7d0);
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .theme-switcher button {
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--line, #d7d7d0);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .theme-switcher button[aria-pressed="true"] {
+      outline: 2px solid var(--ink, #151515);
+      outline-offset: 2px;
+    }
+
+    [data-theme="porcelain"] { --paper: #fbfaf7; --ink: #171717; --muted: #5e5a53; --line: #d8d3c7; --soft: #ece8df; --wash: #d8d3c8; }
+    [data-theme="mist"] { --paper: #f7faf9; --ink: #14201d; --muted: #586763; --line: #cbd8d3; --soft: #e7efec; --wash: #cfdeda; }
+    [data-theme="linen"] { --paper: #fbf8f0; --ink: #201912; --muted: #6b5f51; --line: #ded2bf; --soft: #f0e7d8; --wash: #ddcfbc; }
+    [data-theme="pearl"] { --paper: #faf9fb; --ink: #1d1a22; --muted: #625d6b; --line: #d9d3df; --soft: #eeeaf1; --wash: #d8d1df; }
+
+    body,
+    article {
+      background-color: var(--paper);
+      color: var(--ink);
+    }
+
+    header,
+    .intro,
+    .lead,
+    article,
+    aside,
+    .tab,
+    .image {
+      border-color: var(--line);
+    }
+
+    p,
+    .time,
+    .tab,
+    .meta,
+    .num {
+      color: var(--muted);
+    }
+
+    .search,
+    .image {
+      background: var(--soft);
+    }
+  </style>
+</head>
+<body data-theme="porcelain">
+  <div class="theme-switcher" aria-label="Theme switcher">
+    <button type="button" data-theme-option="porcelain" aria-label="Porcelain theme" aria-pressed="true" style="background:#fbfaf7"></button>
+    <button type="button" data-theme-option="mist" aria-label="Mist theme" aria-pressed="false" style="background:#f7faf9"></button>
+    <button type="button" data-theme-option="linen" aria-label="Linen theme" aria-pressed="false" style="background:#fbf8f0"></button>
+    <button type="button" data-theme-option="pearl" aria-label="Pearl theme" aria-pressed="false" style="background:#faf9fb"></button>
+  </div>
+  <div class="shell">
+    <header>
+      <div class="brand">Brief Index</div>
+      <div class="search"></div>
+      <div class="time">Updated 09:30</div>
+    </header>
+
+    <section class="intro">
+      <h1>Today’s public news, sorted for quick reading</h1>
+      <div class="tabs">
+        <span class="tab">Latest</span>
+        <span class="tab">Most read</span>
+        <span class="tab">Saved</span>
+      </div>
+    </section>
+
+    <main>
+      <section>
+        <article class="lead">
+          <div>
+            <div class="meta">Lead</div>
+            <h2>Compact headline for the main briefing story</h2>
+            <p>A landing page that feels more like a focused morning briefing than a publication front page.</p>
+          </div>
+          <div class="image"></div>
+        </article>
+
+        <div class="feed">
+          <article>
+            <div class="meta">Government</div>
+            <h3>Article headline in a dense two-column feed</h3>
+          </article>
+          <article>
+            <div class="meta">Climate</div>
+            <h3>Short update with enough structure to scan</h3>
+          </article>
+          <article>
+            <div class="meta">Economy</div>
+            <h3>Another official news item appears here</h3>
+          </article>
+          <article>
+            <div class="meta">Safety</div>
+            <h3>Public notice with minimal preview text</h3>
+          </article>
+        </div>
+      </section>
+
+      <aside class="ranked">
+        <div class="meta">Trending</div>
+        <article>
+          <div class="num">1</div>
+          <h3>Most read article receives a numbered row</h3>
+        </article>
+        <article>
+          <div class="num">2</div>
+          <h3>Second ranked story sits in the sidebar</h3>
+        </article>
+        <article>
+          <div class="num">3</div>
+          <h3>Third item keeps the landing page active</h3>
+        </article>
+      </aside>
+    </main>
+  </div>
+  <script>
+    const themeButtons = document.querySelectorAll("[data-theme-option]");
+    themeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        document.body.dataset.theme = button.dataset.themeOption;
+        themeButtons.forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+      });
+    });
+  </script>
+</body>
+</html>
