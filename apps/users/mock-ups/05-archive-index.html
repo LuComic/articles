@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mockup 05 - Archive Index</title>
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,700&family=Source+Sans+3:wght@400;600;800&display=swap");
+
     :root {
       color: #181818;
       background: #ffffff;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Source Sans 3", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     * {
@@ -55,6 +57,7 @@
     h1 {
       max-width: 820px;
       margin: 0;
+      font-family: Literata, Georgia, serif;
       font-size: 60px;
       line-height: 1;
       letter-spacing: 0;
@@ -86,6 +89,20 @@
       color: #64645e;
       font-size: 14px;
       line-height: 1.7;
+    }
+
+    .side-block {
+      padding-top: 18px;
+      margin-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .side-title,
+    .label {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
     }
 
     .day {
@@ -124,6 +141,7 @@
 
     h2 {
       margin: 0 0 8px;
+      font-family: Literata, Georgia, serif;
       font-size: 24px;
       line-height: 1.15;
       letter-spacing: 0;
@@ -136,15 +154,33 @@
     }
 
     .mark {
-      height: 76px;
-      background: repeating-linear-gradient(
-        -45deg,
-        #eeeeea,
-        #eeeeea 8px,
-        #e5e5df 8px,
-        #e5e5df 16px
-      );
+      display: grid;
+      align-content: center;
+      min-height: 76px;
+      background: var(--soft);
+      border: 1px solid var(--line);
       border-radius: 2px;
+      padding: 10px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .article-meta span {
+      padding: 3px 7px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
     }
 
     @media (max-width: 820px) {
@@ -217,15 +253,7 @@
       color: var(--muted);
     }
 
-    .mark {
-      background: repeating-linear-gradient(
-        -45deg,
-        var(--soft),
-        var(--soft) 8px,
-        var(--wash) 8px,
-        var(--wash) 16px
-      );
-    }
+    .mark { background: var(--soft); }
   </style>
 </head>
 <body data-theme="porcelain">
@@ -246,7 +274,7 @@
     </header>
 
     <section class="top">
-      <h1>A landing page built around a clean article index</h1>
+      <h1>A public archive for people who read past the headline</h1>
       <div class="filters">
         <span class="filter">All stories</span>
         <span class="filter">Government</span>
@@ -260,6 +288,14 @@
       <aside>
         Browse the latest official articles by day. This layout is plain,
         archival, and useful when the feed itself is the product.
+        <div class="side-block">
+          <div class="side-title">Index includes</div>
+          Decisions, source links, reading time, update history, and the desk that last verified each item.
+        </div>
+        <div class="side-block">
+          <div class="side-title">Today’s count</div>
+          23 published items / 7 revised / 4 awaiting source files.
+        </div>
       </aside>
 
       <section>
@@ -270,16 +306,18 @@
               <article>
                 <div>
                   <h2>Lead article headline in an archive-style stream</h2>
-                  <p>Brief summary text for the newest story.</p>
+                  <p>Officials confirm the revised service timetable and publish the first source packet for local administrators.</p>
+                  <div class="article-meta"><span>Government</span><span>7 min read</span><span>Updated 10:18</span></div>
                 </div>
-                <div class="mark"></div>
+                <div class="mark">Source packet<br>PDF + table</div>
               </article>
               <article>
                 <div>
-                  <h2>Second item keeps the homepage feeling current</h2>
-                  <p>Short preview text with minimal ornament.</p>
+                  <h2>Transport board opens comments on rural bus contracts</h2>
+                  <p>The notice sets a two-week review period and lists the routes most likely to change in autumn.</p>
+                  <div class="article-meta"><span>Transport</span><span>4 min read</span><span>Open comment</span></div>
                 </div>
-                <div class="mark"></div>
+                <div class="mark">Public notice<br>Comment window</div>
               </article>
             </div>
           </div>
@@ -291,17 +329,19 @@
             <div class="items">
               <article>
                 <div>
-                  <h2>Previous day story in the same repeatable structure</h2>
-                  <p>This gives the landing page a durable archive rhythm.</p>
+                  <h2>Audit office asks agencies to clarify grant reporting</h2>
+                  <p>The archive rhythm helps readers compare yesterday’s decisions with today’s follow-up documents.</p>
+                  <div class="article-meta"><span>Audit</span><span>6 min read</span><span>Follow-up</span></div>
                 </div>
-                <div class="mark"></div>
+                <div class="mark">Report<br>12 pages</div>
               </article>
               <article>
                 <div>
-                  <h2>Another archived item with a small thumbnail block</h2>
-                  <p>Good for sites where volume matters more than spectacle.</p>
+                  <h2>Environment ministry posts updated climate grant register</h2>
+                  <p>Good for sites where volume matters more than spectacle, but every row still carries useful context.</p>
+                  <div class="article-meta"><span>Climate</span><span>3 min read</span><span>Dataset</span></div>
                 </div>
-                <div class="mark"></div>
+                <div class="mark">Register<br>CSV updated</div>
               </article>
             </div>
           </div>

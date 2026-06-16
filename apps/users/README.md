@@ -36,6 +36,22 @@ npm run dev -- --open
 
 Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
 
+## Installing packages
+
+This project lives in a Bun workspace monorepo. When adding dependencies, scope the install to the workspace package you are working on so the dependency lands in the correct `package.json`.
+
+For this app, the workspace name is `users`:
+
+```sh
+bun add package-name --filter users
+```
+
+For another workspace, replace `users` with that workspace package name:
+
+```sh
+bun add package-name --filter workspace-name
+```
+
 ## Building
 
 To build your library:

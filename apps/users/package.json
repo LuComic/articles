@@ -35,6 +35,7 @@
 		"svelte": "^5.0.0"
 	},
 	"dependencies": {
+		"@fontsource/libre-franklin": "^5.2.8",
 		"@news/markdown-extraction": "workspace:*"
 	},
 	"devDependencies": {

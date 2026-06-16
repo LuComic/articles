@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mockup 01 - Newspaper Grid</title>
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,650;6..72,800&family=IBM+Plex+Mono:wght@500;600&display=swap");
+
     :root {
       color: #171717;
       background: #faf9f5;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: Newsreader, Georgia, "Times New Roman", serif;
     }
 
     * {
@@ -37,9 +39,8 @@
 
     .date,
     .links {
-      font: 12px/1.4 Arial, sans-serif;
+      font: 12px/1.4 "IBM Plex Mono", monospace;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
     }
 
     .links {
@@ -50,7 +51,7 @@
       margin: 0;
       font-size: 82px;
       line-height: 0.9;
-      font-weight: 700;
+      font-weight: 800;
       text-align: center;
       letter-spacing: 0;
     }
@@ -61,7 +62,7 @@
       gap: 22px;
       border-bottom: 1px solid #171717;
       padding: 10px 0;
-      font: 12px/1 Arial, sans-serif;
+      font: 12px/1 "IBM Plex Mono", monospace;
       text-transform: uppercase;
     }
 
@@ -82,11 +83,37 @@
       padding-top: 0;
     }
 
-    .photo {
-      height: 340px;
-      background: linear-gradient(90deg, #dedbd1, #efede7, #d5d2c8);
+    .text-poster {
+      display: grid;
+      align-content: space-between;
+      min-height: 310px;
+      background:
+        linear-gradient(90deg, color-mix(in srgb, var(--soft, #ece8df) 76%, transparent), transparent),
+        repeating-linear-gradient(0deg, transparent, transparent 35px, color-mix(in srgb, var(--line, #d8d3c7) 70%, transparent) 36px);
       border: 1px solid #c9c5ba;
       margin-bottom: 14px;
+      padding: 18px;
+      font-family: "IBM Plex Mono", monospace;
+      text-transform: uppercase;
+    }
+
+    .text-poster .kicker {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .text-poster .stat {
+      font-family: Newsreader, Georgia, serif;
+      font-size: 78px;
+      font-weight: 800;
+      line-height: 0.9;
+    }
+
+    .text-poster .caption {
+      max-width: 33ch;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.45;
     }
 
     h2,
@@ -109,6 +136,23 @@
       color: #55514a;
       font-size: 15px;
       line-height: 1.45;
+    }
+
+    .byline,
+    .tag {
+      margin-bottom: 8px;
+      color: var(--muted);
+      font: 11px/1.4 "IBM Plex Mono", monospace;
+      text-transform: uppercase;
+    }
+
+    .pullquote {
+      border-top: 3px double var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 14px 0;
+      font-size: 24px;
+      line-height: 1.08;
+      font-weight: 650;
     }
 
     .stack {
@@ -205,8 +249,7 @@
       color: var(--muted);
     }
 
-    .photo {
-      background: linear-gradient(90deg, var(--wash), var(--soft), var(--wash));
+    .text-poster {
       border-color: var(--line);
     }
   </style>
@@ -234,41 +277,51 @@
     <main>
       <section class="stack">
         <article>
-          <h3>Briefing headline over two clean newspaper lines</h3>
-          <p>Short article summary placeholder for the left column.</p>
+          <div class="tag">City desk / 08:10</div>
+          <h3>Coalition talks move into a quieter second week</h3>
+          <p>Ministers are testing a narrower spending package while municipal leaders ask for firmer dates and fewer late-night revisions.</p>
         </article>
         <article>
-          <h3>Smaller secondary story with sober hierarchy</h3>
-          <p>Compact description text that keeps the page editorial.</p>
+          <div class="tag">Markets / Note</div>
+          <h3>Energy prices settle after a month of sharp signals</h3>
+          <p>Analysts describe the drop as a pause rather than a turn, with import contracts still shaping the winter outlook.</p>
         </article>
         <article>
-          <h3>Analysis note placed below the morning lead</h3>
-          <p>One paragraph teaser for scanning.</p>
+          <div class="pullquote">The page should read like a front desk, not a photo wall.</div>
         </article>
       </section>
 
       <article class="lead">
-        <div class="photo"></div>
-        <h2>Main public-sector story anchors the page</h2>
-        <p>A generous lead article area, like a traditional newspaper homepage, with room for one dominant daily story and a concise summary.</p>
+        <div class="text-poster">
+          <div class="kicker">Public spending ledger</div>
+          <div class="stat">€1.8B</div>
+          <div class="caption">Draft allocations under review across transport, schools, and digital public services.</div>
+        </div>
+        <div class="byline">By Mari Kask / 11 min read</div>
+        <h2>Budget draft puts local services at the center of the fight</h2>
+        <p>The morning lead is built for text: a strong figure, a clear dateline, and enough summary to tell readers what changed before they open the full story.</p>
       </article>
 
       <section class="rule-list">
         <article>
-          <h3>Latest update</h3>
-          <p>Simple top-right story slot.</p>
+          <div class="tag">Latest update</div>
+          <h3>Parliament publishes committee calendar through July</h3>
+          <p>Hearings on procurement, school meals, and regional bus lines are now on the public docket.</p>
         </article>
         <article>
-          <h3>Policy watch</h3>
-          <p>Small excerpt text in a strict column.</p>
+          <div class="tag">Policy watch</div>
+          <h3>New housing rules favor smaller infill projects</h3>
+          <p>The proposal creates a faster review lane for modest developments near existing services.</p>
         </article>
         <article>
-          <h3>Data note</h3>
-          <p>Another short article teaser.</p>
+          <div class="tag">Data note</div>
+          <h3>Hospital wait times improve in three regions</h3>
+          <p>Fresh monthly tables show the sharpest gains in diagnostics and outpatient consultations.</p>
         </article>
         <article>
-          <h3>Culture brief</h3>
-          <p>Last item in the landing grid.</p>
+          <div class="tag">Culture brief</div>
+          <h3>Libraries extend late hours for exam season</h3>
+          <p>Reading rooms in larger towns will stay open longer through the end of the month.</p>
         </article>
       </section>
     </main>

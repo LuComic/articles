@@ -1,3 +1,5 @@
+/// <reference path="../vendor.d.ts" />
+
 import { JSDOM } from "jsdom";
 import TurndownService from "turndown";
 import turndownPluginGfm from "turndown-plugin-gfm";

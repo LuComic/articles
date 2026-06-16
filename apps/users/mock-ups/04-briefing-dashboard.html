@@ -1,332 +1,474 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mockup 04 - Briefing Dashboard</title>
-  <style>
-    :root {
-      color: #151515;
-      background: #f7f7f4;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Mockup 04 - Briefing Dashboard</title>
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;700;800&family=Libre+Franklin:wght@400;500;700;800&family=Source+Sans+3:wght@400;500;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,800&display=swap');
 
-    * {
-      box-sizing: border-box;
-    }
+			:root {
+				color: #151515;
+				background: #f7f7f4;
+				--font-body: 'IBM Plex Sans', Inter, ui-sans-serif, system-ui, sans-serif;
+				--font-display: 'IBM Plex Sans', Inter, ui-sans-serif, system-ui, sans-serif;
+				--font-mono: 'IBM Plex Mono', monospace;
+				font-family:
+					var(--font-body),
+					-apple-system,
+					BlinkMacSystemFont,
+					'Segoe UI',
+					sans-serif;
+			}
 
-    body {
-      margin: 0;
-      background: #f7f7f4;
-    }
+			* {
+				box-sizing: border-box;
+			}
 
-    .shell {
-      width: min(1220px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 20px 0 42px;
-    }
+			body {
+				margin: 0;
+				background: #f7f7f4;
+			}
 
-    header {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 24px;
-      min-height: 58px;
-      border-bottom: 1px solid #d7d7d0;
-    }
+			.shell {
+				width: min(1220px, calc(100% - 32px));
+				margin: 0 auto;
+				padding: 20px 0 42px;
+			}
 
-    .brand {
-      font-weight: 800;
-      font-size: 20px;
-      letter-spacing: 0;
-    }
+			header {
+				display: grid;
+				grid-template-columns: auto 1fr auto;
+				align-items: center;
+				gap: 24px;
+				min-height: 58px;
+				border-bottom: 1px solid #d7d7d0;
+			}
 
-    .search {
-      height: 34px;
-      background: #ecece6;
-      border: 1px solid #deded5;
-      border-radius: 4px;
-    }
+			.brand {
+				font-family: var(--font-display);
+				font-weight: 800;
+				font-size: 20px;
+				letter-spacing: 0;
+			}
 
-    .time {
-      color: #6d6d66;
-      font-size: 13px;
-    }
+			.search {
+				height: 34px;
+				background: #ecece6;
+				border: 1px solid #deded5;
+				border-radius: 4px;
+				display: flex;
+				align-items: center;
+				padding: 0 12px;
+				color: var(--muted);
+				font-size: 13px;
+			}
 
-    .intro {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 24px;
-      align-items: end;
-      padding: 28px 0;
-      border-bottom: 1px solid #d7d7d0;
-    }
+			.time {
+				color: #6d6d66;
+				font-size: 13px;
+			}
 
-    h1 {
-      margin: 0;
-      font-size: 56px;
-      line-height: 1;
-      letter-spacing: 0;
-    }
+			.intro {
+				display: grid;
+				grid-template-columns: 1fr auto;
+				gap: 24px;
+				align-items: end;
+				padding: 28px 0;
+				border-bottom: 1px solid #d7d7d0;
+			}
 
-    .tabs {
-      display: flex;
-      gap: 8px;
-    }
+			h1 {
+				margin: 0;
+				font-family: var(--font-display);
+				font-size: 56px;
+				line-height: 1;
+				letter-spacing: 0;
+			}
 
-    .tab {
-      padding: 8px 12px;
-      border: 1px solid #d7d7d0;
-      border-radius: 4px;
-      color: #595952;
-      font-size: 13px;
-    }
+			.tabs {
+				display: flex;
+				gap: 8px;
+			}
 
-    main {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr;
-      gap: 28px;
-      padding-top: 28px;
-    }
+			.tab {
+				padding: 8px 12px;
+				border: 1px solid #d7d7d0;
+				border-radius: 4px;
+				color: #595952;
+				font-size: 13px;
+				font-weight: 500;
+			}
 
-    .lead {
-      display: grid;
-      grid-template-columns: 1fr 280px;
-      gap: 24px;
-      min-height: 290px;
-      border-bottom: 1px solid #d7d7d0;
-      padding-bottom: 28px;
-    }
+			main {
+				display: grid;
+				grid-template-columns: 1.6fr 1fr;
+				gap: 28px;
+				padding-top: 28px;
+			}
 
-    .image {
-      background: #deded6;
-      border: 1px solid #d1d1c8;
-      border-radius: 3px;
-    }
+			.lead {
+				display: grid;
+				grid-template-columns: 1fr 280px;
+				gap: 24px;
+				min-height: 290px;
+				border-bottom: 1px solid #d7d7d0;
+				padding-bottom: 28px;
+			}
 
-    h2 {
-      margin: 0 0 12px;
-      font-size: 36px;
-      line-height: 1.03;
-      letter-spacing: 0;
-    }
+			.brief-card {
+				background:
+					repeating-linear-gradient(
+						0deg,
+						transparent,
+						transparent 18px,
+						color-mix(in srgb, var(--line, #d7d7d0) 65%, transparent) 19px
+					),
+					#deded6;
+				border: 1px solid #d1d1c8;
+				border-radius: 3px;
+				padding: 18px;
+				display: grid;
+				align-content: space-between;
+				min-height: 230px;
+				font-family: var(--font-mono);
+				text-transform: uppercase;
+			}
 
-    h3 {
-      margin: 0;
-      font-size: 18px;
-      line-height: 1.2;
-      letter-spacing: 0;
-    }
+			.brief-card strong {
+				font-family: var(--font-display);
+				font-size: 42px;
+				line-height: 0.95;
+				text-transform: none;
+			}
 
-    p {
-      margin: 0;
-      color: #66665f;
-      line-height: 1.5;
-    }
+			.brief-card span {
+				color: var(--muted);
+				font-size: 11px;
+			}
 
-    .feed {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0 24px;
-      margin-top: 4px;
-    }
+			h2 {
+				margin: 0 0 12px;
+				font-family: var(--font-display);
+				font-size: 36px;
+				line-height: 1.03;
+				letter-spacing: 0;
+			}
 
-    article {
-      padding: 22px 0;
-      border-bottom: 1px solid #d7d7d0;
-    }
+			h3 {
+				margin: 0;
+				font-family: var(--font-display);
+				font-size: 18px;
+				line-height: 1.2;
+				letter-spacing: 0;
+			}
 
-    .meta {
-      margin-bottom: 8px;
-      color: #77776f;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
+			p {
+				margin: 0;
+				color: #66665f;
+				line-height: 1.5;
+			}
 
-    aside {
-      border-left: 1px solid #d7d7d0;
-      padding-left: 28px;
-    }
+			.feed {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 0 24px;
+				margin-top: 4px;
+			}
 
-    .ranked article {
-      display: grid;
-      grid-template-columns: 34px 1fr;
-      gap: 14px;
-    }
+			article {
+				padding: 22px 0;
+				border-bottom: 1px solid #d7d7d0;
+			}
 
-    .num {
-      color: #9a9a91;
-      font-size: 24px;
-      font-weight: 700;
-    }
+			.meta {
+				margin-bottom: 8px;
+				color: #77776f;
+				font-family: var(--font-mono);
+				font-size: 12px;
+				text-transform: uppercase;
+			}
 
-    @media (max-width: 880px) {
-      header,
-      .intro,
-      main,
-      .lead,
-      .feed {
-        grid-template-columns: 1fr;
-      }
+			.summary-points {
+				margin: 16px 0 0;
+				padding-left: 18px;
+				color: var(--muted);
+				line-height: 1.55;
+			}
 
-      aside {
-        border-left: 0;
-        padding-left: 0;
-      }
+			.source {
+				margin-top: 10px;
+				color: var(--muted);
+				font-size: 13px;
+			}
 
-      .search {
-        display: none;
-      }
+			aside {
+				border-left: 1px solid #d7d7d0;
+				padding-left: 28px;
+			}
 
-      h1 {
-        font-size: 36px;
-      }
-    }
+			.ranked article {
+				display: grid;
+				grid-template-columns: 34px 1fr;
+				gap: 14px;
+			}
 
-    .theme-switcher {
-      position: fixed;
-      right: 16px;
-      bottom: 16px;
-      z-index: 20;
-      display: flex;
-      gap: 6px;
-      padding: 6px;
-      background: color-mix(in srgb, var(--paper, #f7f7f4) 92%, white);
-      border: 1px solid var(--line, #d7d7d0);
-      border-radius: 6px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    }
+			.num {
+				color: #9a9a91;
+				font-size: 24px;
+				font-weight: 700;
+			}
 
-    .theme-switcher button {
-      width: 28px;
-      height: 28px;
-      border: 1px solid var(--line, #d7d7d0);
-      border-radius: 4px;
-      cursor: pointer;
-    }
+			@media (max-width: 880px) {
+				header,
+				.intro,
+				main,
+				.lead,
+				.feed {
+					grid-template-columns: 1fr;
+				}
 
-    .theme-switcher button[aria-pressed="true"] {
-      outline: 2px solid var(--ink, #151515);
-      outline-offset: 2px;
-    }
+				aside {
+					border-left: 0;
+					padding-left: 0;
+				}
 
-    [data-theme="porcelain"] { --paper: #fbfaf7; --ink: #171717; --muted: #5e5a53; --line: #d8d3c7; --soft: #ece8df; --wash: #d8d3c8; }
-    [data-theme="mist"] { --paper: #f7faf9; --ink: #14201d; --muted: #586763; --line: #cbd8d3; --soft: #e7efec; --wash: #cfdeda; }
-    [data-theme="linen"] { --paper: #fbf8f0; --ink: #201912; --muted: #6b5f51; --line: #ded2bf; --soft: #f0e7d8; --wash: #ddcfbc; }
-    [data-theme="pearl"] { --paper: #faf9fb; --ink: #1d1a22; --muted: #625d6b; --line: #d9d3df; --soft: #eeeaf1; --wash: #d8d1df; }
+				.search {
+					display: none;
+				}
 
-    body,
-    article {
-      background-color: var(--paper);
-      color: var(--ink);
-    }
+				h1 {
+					font-size: 36px;
+				}
+			}
 
-    header,
-    .intro,
-    .lead,
-    article,
-    aside,
-    .tab,
-    .image {
-      border-color: var(--line);
-    }
+			.font-switcher {
+				position: fixed;
+				right: 16px;
+				bottom: 16px;
+				z-index: 20;
+				display: flex;
+				gap: 6px;
+				padding: 6px;
+				background: color-mix(in srgb, var(--paper, #f7f7f4) 92%, white);
+				border: 1px solid var(--line, #d7d7d0);
+				border-radius: 6px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+			}
 
-    p,
-    .time,
-    .tab,
-    .meta,
-    .num {
-      color: var(--muted);
-    }
+			.font-switcher button {
+				min-width: 44px;
+				height: 30px;
+				padding: 0 10px;
+				background: var(--paper, #f7f7f4);
+				border: 1px solid var(--line, #d7d7d0);
+				border-radius: 4px;
+				color: var(--muted, #6d6d66);
+				cursor: pointer;
+				font-size: 12px;
+				font-weight: 700;
+			}
 
-    .search,
-    .image {
-      background: var(--soft);
-    }
-  </style>
-</head>
-<body data-theme="porcelain">
-  <div class="theme-switcher" aria-label="Theme switcher">
-    <button type="button" data-theme-option="porcelain" aria-label="Porcelain theme" aria-pressed="true" style="background:#fbfaf7"></button>
-    <button type="button" data-theme-option="mist" aria-label="Mist theme" aria-pressed="false" style="background:#f7faf9"></button>
-    <button type="button" data-theme-option="linen" aria-label="Linen theme" aria-pressed="false" style="background:#fbf8f0"></button>
-    <button type="button" data-theme-option="pearl" aria-label="Pearl theme" aria-pressed="false" style="background:#faf9fb"></button>
-  </div>
-  <div class="shell">
-    <header>
-      <div class="brand">Brief Index</div>
-      <div class="search"></div>
-      <div class="time">Updated 09:30</div>
-    </header>
+			.font-switcher button[aria-pressed='true'] {
+				outline: 2px solid var(--ink, #151515);
+				outline-offset: 2px;
+				color: var(--ink, #151515);
+			}
 
-    <section class="intro">
-      <h1>Today’s public news, sorted for quick reading</h1>
-      <div class="tabs">
-        <span class="tab">Latest</span>
-        <span class="tab">Most read</span>
-        <span class="tab">Saved</span>
-      </div>
-    </section>
+			[data-theme='porcelain'] {
+				--paper: #fbfaf7;
+				--ink: #171717;
+				--muted: #5e5a53;
+				--line: #d8d3c7;
+				--soft: #ece8df;
+				--wash: #d8d3c8;
+			}
+			[data-theme='mist'] {
+				--paper: #f7faf9;
+				--ink: #14201d;
+				--muted: #586763;
+				--line: #cbd8d3;
+				--soft: #e7efec;
+				--wash: #cfdeda;
+			}
+			[data-theme='linen'] {
+				--paper: #fbf8f0;
+				--ink: #201912;
+				--muted: #6b5f51;
+				--line: #ded2bf;
+				--soft: #f0e7d8;
+				--wash: #ddcfbc;
+			}
+			[data-theme='pearl'] {
+				--paper: #faf9fb;
+				--ink: #1d1a22;
+				--muted: #625d6b;
+				--line: #d9d3df;
+				--soft: #eeeaf1;
+				--wash: #d8d1df;
+			}
 
-    <main>
-      <section>
-        <article class="lead">
-          <div>
-            <div class="meta">Lead</div>
-            <h2>Compact headline for the main briefing story</h2>
-            <p>A landing page that feels more like a focused morning briefing than a publication front page.</p>
-          </div>
-          <div class="image"></div>
-        </article>
+			[data-font='plex'] {
+				--font-body: 'IBM Plex Sans', Inter, ui-sans-serif, system-ui, sans-serif;
+				--font-display: 'IBM Plex Sans', Inter, ui-sans-serif, system-ui, sans-serif;
+				--font-mono: 'IBM Plex Mono', monospace;
+			}
 
-        <div class="feed">
-          <article>
-            <div class="meta">Government</div>
-            <h3>Article headline in a dense two-column feed</h3>
-          </article>
-          <article>
-            <div class="meta">Climate</div>
-            <h3>Short update with enough structure to scan</h3>
-          </article>
-          <article>
-            <div class="meta">Economy</div>
-            <h3>Another official news item appears here</h3>
-          </article>
-          <article>
-            <div class="meta">Safety</div>
-            <h3>Public notice with minimal preview text</h3>
-          </article>
-        </div>
-      </section>
+			[data-font='source'] {
+				--font-body: 'Source Sans 3', Inter, ui-sans-serif, system-ui, sans-serif;
+				--font-display: 'Source Serif 4', Georgia, serif;
+				--font-mono: 'IBM Plex Mono', monospace;
+			}
 
-      <aside class="ranked">
-        <div class="meta">Trending</div>
-        <article>
-          <div class="num">1</div>
-          <h3>Most read article receives a numbered row</h3>
-        </article>
-        <article>
-          <div class="num">2</div>
-          <h3>Second ranked story sits in the sidebar</h3>
-        </article>
-        <article>
-          <div class="num">3</div>
-          <h3>Third item keeps the landing page active</h3>
-        </article>
-      </aside>
-    </main>
-  </div>
-  <script>
-    const themeButtons = document.querySelectorAll("[data-theme-option]");
-    themeButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        document.body.dataset.theme = button.dataset.themeOption;
-        themeButtons.forEach((item) => {
-          item.setAttribute("aria-pressed", String(item === button));
-        });
-      });
-    });
-  </script>
-</body>
+			[data-font='franklin'] {
+				--font-body: 'Libre Franklin', Inter, ui-sans-serif, system-ui, sans-serif;
+				--font-display: 'Libre Franklin', Inter, ui-sans-serif, system-ui, sans-serif;
+				--font-mono: 'IBM Plex Mono', monospace;
+			}
+
+			body,
+			article {
+				background-color: var(--paper);
+				color: var(--ink);
+				font-family: var(--font-body);
+			}
+
+			header,
+			.intro,
+			.lead,
+			article,
+			aside,
+			.tab,
+			.brief-card {
+				border-color: var(--line);
+			}
+
+			p,
+			.time,
+			.tab,
+			.meta,
+			.num {
+				color: var(--muted);
+			}
+
+			.search,
+			.brief-card {
+				background: var(--soft);
+			}
+		</style>
+	</head>
+	<body data-theme="mist" data-font="franklin">
+		<div class="font-switcher" aria-label="Font switcher">
+			<button type="button" data-font-option="plex" aria-label="IBM Plex font" aria-pressed="false">
+				Plex
+			</button>
+			<button
+				type="button"
+				data-font-option="source"
+				aria-label="Source Serif and Source Sans font"
+				aria-pressed="false"
+			>
+				Source
+			</button>
+			<button
+				type="button"
+				data-font-option="franklin"
+				aria-label="Libre Franklin font"
+				aria-pressed="true"
+			>
+				Franklin
+			</button>
+		</div>
+		<div class="shell">
+			<header>
+				<div class="brand">Brief Index</div>
+				<div class="search">Search agencies, topics, source IDs</div>
+				<div class="time">Updated 09:30</div>
+			</header>
+
+			<section class="intro">
+				<h1>Today’s public news, sorted for quick reading</h1>
+				<div class="tabs">
+					<span class="tab">Latest</span>
+					<span class="tab">Most read</span>
+					<span class="tab">Saved</span>
+				</div>
+			</section>
+
+			<main>
+				<section>
+					<article class="lead">
+						<div>
+							<div class="meta">Lead</div>
+							<h2>Ministries publish a revised timetable for service upgrades</h2>
+							<p>
+								A focused morning briefing that tells readers what changed, who is responsible, and
+								what deadline moves next.
+							</p>
+							<ul class="summary-points">
+								<li>Digital ID changes move from June to August.</li>
+								<li>Regional offices get a shared implementation checklist.</li>
+								<li>The next public status note is due Friday.</li>
+							</ul>
+						</div>
+						<div class="brief-card">
+							<span>Status board</span>
+							<strong>18 active items</strong>
+							<span>5 delayed / 9 on track / 4 need source confirmation</span>
+						</div>
+					</article>
+
+					<div class="feed">
+						<article>
+							<div class="meta">Government</div>
+							<h3>Cabinet office adds late amendments to procurement rules</h3>
+							<div class="source">Source: agenda item 24-118</div>
+						</article>
+						<article>
+							<div class="meta">Climate</div>
+							<h3>Grant recipients must publish quarterly emissions notes</h3>
+							<div class="source">Source: environment memo</div>
+						</article>
+						<article>
+							<div class="meta">Economy</div>
+							<h3>Statistics office flags slower wage growth in public services</h3>
+							<div class="source">Source: monthly release</div>
+						</article>
+						<article>
+							<div class="meta">Safety</div>
+							<h3>Emergency board updates the national storm readiness guide</h3>
+							<div class="source">Source: public notice</div>
+						</article>
+					</div>
+				</section>
+
+				<aside class="ranked">
+					<div class="meta">Trending</div>
+					<article>
+						<div class="num">1</div>
+						<h3>School meal tender pauses after supplier questions</h3>
+					</article>
+					<article>
+						<div class="num">2</div>
+						<h3>New rail schedule adds earlier commuter departures</h3>
+					</article>
+					<article>
+						<div class="num">3</div>
+						<h3>Audit office publishes follow-up on grant reporting</h3>
+					</article>
+				</aside>
+			</main>
+		</div>
+		<script>
+			const fontButtons = document.querySelectorAll('[data-font-option]');
+			fontButtons.forEach((button) => {
+				button.addEventListener('click', () => {
+					document.body.dataset.font = button.dataset.fontOption;
+					fontButtons.forEach((item) => {
+						item.setAttribute('aria-pressed', String(item === button));
+					});
+				});
+			});
+		</script>
+	</body>
 </html>

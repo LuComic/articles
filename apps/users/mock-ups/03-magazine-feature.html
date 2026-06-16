@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mockup 03 - Magazine Feature</title>
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;800&family=Playfair+Display:wght@600;800&display=swap");
+
     :root {
       color: #101010;
       background: #f4f6f2;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Libre Franklin", Arial, Helvetica, sans-serif;
     }
 
     * {
@@ -73,6 +75,7 @@
 
     h1 {
       margin: 0 0 22px;
+      font-family: "Playfair Display", Georgia, serif;
       font-size: 74px;
       line-height: 0.95;
       letter-spacing: 0;
@@ -89,10 +92,41 @@
       align-self: stretch;
       margin: 34px 0;
       background:
-        linear-gradient(120deg, rgba(16, 16, 16, 0.08), transparent 42%),
+        repeating-linear-gradient(0deg, transparent, transparent 28px, color-mix(in srgb, var(--line, #cfd7c6) 62%, transparent) 29px),
         linear-gradient(90deg, #d8dfd2, #bfcabb);
       border: 1px solid #bcc7b3;
       min-height: 420px;
+      padding: 28px;
+      display: grid;
+      align-content: space-between;
+    }
+
+    .visual-label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .quote {
+      max-width: 11ch;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 54px;
+      font-weight: 800;
+      line-height: 0.95;
+    }
+
+    .notes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .notes span {
+      border-top: 1px solid var(--line);
+      padding-top: 8px;
     }
 
     .below {
@@ -111,6 +145,7 @@
 
     h2 {
       margin: 0 0 12px;
+      font-family: "Playfair Display", Georgia, serif;
       font-size: 24px;
       line-height: 1.08;
       letter-spacing: 0;
@@ -119,6 +154,14 @@
     article p {
       font-size: 14px;
       line-height: 1.45;
+    }
+
+    .article-meta {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
     }
 
     @media (max-width: 900px) {
@@ -198,7 +241,7 @@
 
     .visual {
       background:
-        linear-gradient(120deg, rgba(16, 16, 16, 0.06), transparent 42%),
+        repeating-linear-gradient(0deg, transparent, transparent 28px, color-mix(in srgb, var(--line) 62%, transparent) 29px),
         linear-gradient(90deg, var(--soft), var(--wash));
     }
   </style>
@@ -223,28 +266,40 @@
     <section class="feature">
       <div class="copy">
         <div class="eyebrow">Featured Report</div>
-        <h1>One story gets the full landing-page stage</h1>
-        <p>Magazine-inspired structure for a media site that wants one article to feel important while still showing the rest of the issue below.</p>
+        <h1>The civic story gets a proper front page</h1>
+        <p>Magazine-inspired structure for a public-interest site where a single reported piece can feel important without relying on a large photo.</p>
       </div>
-      <div class="visual"></div>
+      <div class="visual">
+        <div class="visual-label">Reporter’s notebook</div>
+        <div class="quote">“The record is the scene.”</div>
+        <div class="notes">
+          <span>14 public documents checked</span>
+          <span>6 source interviews</span>
+          <span>3 open questions for follow-up</span>
+        </div>
+      </div>
     </section>
 
     <section class="below">
       <article>
-        <h2>Policy story</h2>
-        <p>Small supporting article with a short deck.</p>
+        <div class="article-meta">Policy / 7 min</div>
+        <h2>Inside the amendment that rewrites service deadlines</h2>
+        <p>A supporting feature with enough detail to feel reported from the first screen.</p>
       </article>
       <article>
-        <h2>Data explainer</h2>
-        <p>Another tile in the lower editorial row.</p>
+        <div class="article-meta">Data / Explainer</div>
+        <h2>What the new register reveals about stalled projects</h2>
+        <p>Figures are translated into consequences, exceptions, and next steps.</p>
       </article>
       <article>
-        <h2>Latest brief</h2>
-        <p>Compact article copy for a simple landing layout.</p>
+        <div class="article-meta">Latest / 09:50</div>
+        <h2>Committee chairs ask ministries for cleaner source files</h2>
+        <p>Compact article copy that keeps the page dense and current.</p>
       </article>
       <article>
-        <h2>Opinion note</h2>
-        <p>Last supporting story in the first viewport.</p>
+        <div class="article-meta">Opinion / Note</div>
+        <h2>A slower homepage can make urgent news easier to trust</h2>
+        <p>Last supporting story, written like an editorial note instead of filler.</p>
       </article>
     </section>
   </div>

@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mockup 02 - Medium Feed</title>
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..800,40&family=Inter:wght@400;500;650;800&display=swap");
+
     :root {
       color: #222;
       background: #fff;
@@ -35,7 +37,7 @@
     }
 
     .brand {
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: Fraunces, Georgia, "Times New Roman", serif;
       font-size: 34px;
       letter-spacing: 0;
     }
@@ -60,7 +62,7 @@
     .hero h1 {
       margin: 0 0 18px;
       max-width: 760px;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: Fraunces, Georgia, "Times New Roman", serif;
       font-size: 72px;
       line-height: 0.96;
       letter-spacing: 0;
@@ -100,6 +102,15 @@
       letter-spacing: 0;
     }
 
+    .mini span,
+    .read-label {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
     main {
       width: min(1120px, calc(100% - 32px));
       margin: 0 auto;
@@ -111,7 +122,7 @@
 
     article {
       display: grid;
-      grid-template-columns: 1fr 148px;
+      grid-template-columns: 1fr 156px;
       gap: 24px;
       padding: 26px 0;
       border-bottom: 1px solid #eeeae3;
@@ -119,7 +130,7 @@
 
     h2 {
       margin: 0 0 8px;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: Fraunces, Georgia, "Times New Roman", serif;
       font-size: 27px;
       line-height: 1.08;
       letter-spacing: 0;
@@ -138,9 +149,40 @@
     }
 
     .thumb {
-      height: 108px;
-      background: #e7e3dc;
+      display: grid;
+      align-content: space-between;
+      min-height: 116px;
+      background:
+        repeating-linear-gradient(0deg, transparent, transparent 12px, color-mix(in srgb, var(--line, #ded9d0) 55%, transparent) 13px),
+        var(--soft, #ece8df);
       border-radius: 2px;
+      border: 1px solid var(--line);
+      padding: 12px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 650;
+      text-transform: uppercase;
+    }
+
+    .thumb strong {
+      color: var(--ink);
+      font-family: Fraunces, Georgia, serif;
+      font-size: 28px;
+      line-height: 1;
+      text-transform: none;
+    }
+
+    .digest {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .digest ol {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+      line-height: 1.6;
     }
 
     aside {
@@ -179,7 +221,7 @@
       }
 
       .thumb {
-        height: 160px;
+        min-height: 140px;
       }
     }
 
@@ -265,13 +307,13 @@
   <section class="hero">
     <div>
       <h1>Independent notes from public life</h1>
-      <p>A calmer landing page that treats the top of the site as an editorial promise before flowing into a readable article feed.</p>
+      <p>A text-first landing page with the confidence of a magazine front and the utility of a working reading list.</p>
     </div>
     <div class="panel">
       <div class="panel-title">Today</div>
-      <div class="mini"><strong>Morning report from government sources</strong></div>
-      <div class="mini"><strong>What changed in the latest transport brief</strong></div>
-      <div class="mini"><strong>Three updates worth saving for later</strong></div>
+      <div class="mini"><strong>Morning report from government sources</strong><span>Budget tables, procurement notes, and a cabinet schedule.</span></div>
+      <div class="mini"><strong>What changed in the latest transport brief</strong><span>Two routes restored, one deadline moved, and a new funding caveat.</span></div>
+      <div class="mini"><strong>Three updates worth saving for later</strong><span>Useful backgrounders for a slower read after the first scan.</span></div>
     </div>
   </section>
 
@@ -279,27 +321,27 @@
     <section>
       <article>
         <div>
-          <h2>Feature story headline designed for a reading feed</h2>
-          <p>Skeleton summary for an article preview with a soft, Medium-like rhythm.</p>
-          <div class="meta">4 min read / Policy</div>
+          <h2>Officials redraw the digital services plan around smaller releases</h2>
+          <p>The new schedule favors quarterly launches, clearer ownership, and public changelogs that readers can audit over time.</p>
+          <div class="meta">By Liis Tamm / 4 min read / Policy</div>
         </div>
-        <div class="thumb"></div>
+        <div class="thumb"><span>Brief</span><strong>04</strong><span>min read</span></div>
       </article>
       <article>
         <div>
-          <h2>Another article receives a comfortable preview row</h2>
-          <p>Simple excerpt space for metadata, writer, and a reading-time cue.</p>
-          <div class="meta">6 min read / Analysis</div>
+          <h2>How a quiet procurement memo became the week’s most useful document</h2>
+          <p>A close read of the language that explains the delay, the new vendor rules, and what departments must publish next.</p>
+          <div class="meta">By Rasmus Lepp / 6 min read / Analysis</div>
         </div>
-        <div class="thumb"></div>
+        <div class="thumb"><span>Filed</span><strong>12</strong><span>source notes</span></div>
       </article>
       <article>
         <div>
-          <h2>Public institutions publish a steady news stream</h2>
-          <p>The layout favors scanning without feeling like a dashboard.</p>
-          <div class="meta">3 min read / Estonia</div>
+          <h2>Regional councils publish a steadier stream of meeting records</h2>
+          <p>The format favors scanning: source, decision, consequence, and a plain-language note on what residents should watch.</p>
+          <div class="meta">By Eva Saar / 3 min read / Estonia</div>
         </div>
-        <div class="thumb"></div>
+        <div class="thumb"><span>Updated</span><strong>09:40</strong><span>public record</span></div>
       </article>
     </section>
     <aside>
@@ -309,6 +351,14 @@
       <span class="topic">Climate</span>
       <span class="topic">Safety</span>
       <span class="topic">Data</span>
+      <div class="digest">
+        <div class="panel-title">Reading Queue</div>
+        <ol>
+          <li>Cabinet agenda tracker</li>
+          <li>School funding explainer</li>
+          <li>Climate grant register</li>
+        </ol>
+      </div>
     </aside>
   </main>
   <script>
