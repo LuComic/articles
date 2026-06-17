@@ -8,6 +8,7 @@ export type NewsCard = {
 	publishedAt: string | null;
 	publishedLabel: string;
 	url: string;
+	imageUrl: string | null;
 	readMinutes: number;
 	topic: string;
 };
@@ -80,9 +81,43 @@ function toCard(article: ArticleRecord, row: UrlRow | undefined, index: number):
 		publishedAt,
 		publishedLabel: formatPublishedAt(publishedAt),
 		url: article.final_url || article.url,
+		imageUrl: firstValidImage(article, row),
 		readMinutes: Math.max(1, Math.ceil(article.body_text.length / 900)),
 		topic: topicFor(sourceName, sourceDomain, index)
 	};
+}
+
+function firstValidImage(article: ArticleRecord, row: UrlRow | undefined): string | null {
+	const rowImages = [
+		row?.image,
+		row?.image_url,
+		row?.poster,
+		row?.poster_url,
+		row?.thumbnail,
+		row?.thumbnail_url
+	];
+	const candidates = [...article.images, ...rowImages];
+
+	for (const candidate of candidates) {
+		if (typeof candidate !== 'string') continue;
+		if (isValidImageUrl(candidate)) return candidate;
+	}
+
+	return null;
+}
+
+function isValidImageUrl(value: string): boolean {
+	try {
+		const url = new URL(value);
+		if (url.protocol !== 'http:' && url.protocol !== 'https:') return false;
+
+		const pathname = url.pathname.toLowerCase();
+		if (!pathname.includes('.')) return true;
+
+		return /\.(avif|gif|jpe?g|png|webp)$/.test(pathname);
+	} catch {
+		return false;
+	}
 }
 
 function summaryFor(article: ArticleRecord): string {

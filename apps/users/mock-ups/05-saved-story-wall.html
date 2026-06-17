@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Mockup 05 - Saved Story Wall</title>
+		<style>
+			@font-face {
+				font-family: 'Alcyone';
+				src:
+					url('../static/Alcyone_Medium/Webfont/Alcyone%20Medium%20webfont/Alcyone-Medium.woff2')
+						format('woff2'),
+					url('../static/Alcyone_Medium/Webfont/Alcyone%20Medium%20webfont/Alcyone-Medium.woff')
+						format('woff');
+				font-weight: 500;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			:root {
+				--paper: #f7f7f4;
+				--ink: #151515;
+				--muted: #6d6d66;
+				--line: #d7d7d0;
+				--soft: #ecece6;
+				--mint: #c8d9d2;
+				--steel: #bbc7d0;
+				--sand: #d8cbb7;
+				--rose: #d6b9b4;
+				font-family: 'Alcyone', 'IBM Plex Sans', Inter, ui-sans-serif, system-ui, sans-serif;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				background: var(--paper);
+				color: var(--ink);
+				font-family: 'Alcyone', 'IBM Plex Sans', Inter, ui-sans-serif, system-ui, sans-serif;
+			}
+
+			.shell {
+				width: min(1220px, calc(100% - 32px));
+				margin: 0 auto;
+				padding: 20px 0 44px;
+			}
+
+			header {
+				display: grid;
+				grid-template-columns: auto 1fr auto;
+				align-items: center;
+				gap: 24px;
+				min-height: 58px;
+				border-bottom: 1px solid var(--line);
+			}
+
+			.brand {
+				font-size: 20px;
+				font-weight: 800;
+			}
+
+			.search {
+				height: 34px;
+				display: flex;
+				align-items: center;
+				padding: 0 12px;
+				border: 1px solid var(--line);
+				border-radius: 4px;
+				background: var(--soft);
+				color: var(--muted);
+				font-size: 13px;
+			}
+
+			.time,
+			.meta,
+			p,
+			.source {
+				color: var(--muted);
+			}
+
+			.time {
+				font-size: 13px;
+			}
+
+			.intro {
+				display: grid;
+				grid-template-columns: 1fr auto;
+				gap: 24px;
+				align-items: end;
+				padding: 28px 0;
+				border-bottom: 1px solid var(--line);
+			}
+
+			h1,
+			h2,
+			h3 {
+				margin: 0;
+				letter-spacing: 0;
+			}
+
+			h1 {
+				max-width: 880px;
+				font-size: 56px;
+				line-height: 0.98;
+			}
+
+			h2 {
+				font-size: 36px;
+				line-height: 1.04;
+			}
+
+			h3 {
+				font-size: 19px;
+				line-height: 1.18;
+			}
+
+			p {
+				margin: 12px 0 0;
+				line-height: 1.48;
+			}
+
+			.tabs {
+				display: flex;
+				gap: 8px;
+			}
+
+			.tab {
+				padding: 8px 12px;
+				border: 1px solid var(--line);
+				border-radius: 4px;
+				color: var(--muted);
+				font-size: 13px;
+			}
+
+			.wall {
+				display: grid;
+				grid-template-columns: 1.1fr 0.9fr 0.8fr;
+				gap: 24px;
+				padding-top: 28px;
+			}
+
+			.column {
+				display: grid;
+				align-content: start;
+				gap: 0;
+			}
+
+			.saved {
+				padding: 0 0 24px;
+				margin-bottom: 24px;
+				border-bottom: 1px solid var(--line);
+			}
+
+			.poster {
+				aspect-ratio: 4 / 3;
+				margin-bottom: 16px;
+				border: 1px solid var(--line);
+				border-radius: 3px;
+				background: var(--mint);
+			}
+
+			.tall .poster {
+				aspect-ratio: 3 / 4;
+				background:
+					linear-gradient(135deg, color-mix(in srgb, var(--steel) 78%, white), transparent 48%),
+					linear-gradient(24deg, var(--sand), var(--rose));
+			}
+
+			.wide .poster {
+				aspect-ratio: 16 / 9;
+				background: var(--steel);
+			}
+
+			.warm .poster {
+				background: var(--sand);
+			}
+
+			.rose .poster {
+				background: var(--rose);
+			}
+
+			.meta {
+				margin-bottom: 8px;
+				font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+				font-size: 12px;
+				text-transform: uppercase;
+			}
+
+			.source {
+				margin-top: 10px;
+				font-size: 13px;
+			}
+
+			@media (max-width: 920px) {
+				header,
+				.intro,
+				.wall {
+					grid-template-columns: 1fr;
+				}
+
+				.search {
+					display: none;
+				}
+
+				h1 {
+					font-size: 38px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="shell">
+			<header>
+				<div class="brand">Brief Index</div>
+				<div class="search">Search archive, agencies, topics</div>
+				<div class="time">Updated 12:05</div>
+			</header>
+
+			<section class="intro">
+				<h1>A saved-story wall with varied poster rhythms</h1>
+				<div class="tabs">
+					<span class="tab">Saved</span>
+					<span class="tab">Images</span>
+					<span class="tab">Sources</span>
+				</div>
+			</section>
+
+			<main class="wall">
+				<section class="column">
+					<article class="saved tall">
+						<div class="poster"></div>
+						<div class="meta">Pinned archive</div>
+						<h2>Procurement rule changes collected with source posters</h2>
+						<p>
+							This archive concept treats saved articles like a working image wall: readable,
+							scannable, and less rigid than the dashboard.
+						</p>
+						<div class="source">Government desk</div>
+					</article>
+					<article class="saved wide">
+						<div class="poster"></div>
+						<div class="meta">Transport</div>
+						<h3>New rail schedule adds earlier commuter departures</h3>
+						<div class="source">Saved yesterday</div>
+					</article>
+				</section>
+
+				<section class="column">
+					<article class="saved warm">
+						<div class="poster"></div>
+						<div class="meta">Climate</div>
+						<h3>Grant recipients must publish quarterly emissions notes</h3>
+						<div class="source">Saved Monday</div>
+					</article>
+					<article class="saved tall rose">
+						<div class="poster"></div>
+						<div class="meta">Safety</div>
+						<h2>Emergency board updates the national storm readiness guide</h2>
+						<div class="source">Public notice</div>
+					</article>
+				</section>
+
+				<section class="column">
+					<article class="saved wide">
+						<div class="poster"></div>
+						<div class="meta">Education</div>
+						<h3>Exam office releases updated guidance for digital testing rooms</h3>
+						<div class="source">Saved Friday</div>
+					</article>
+					<article class="saved">
+						<div class="poster"></div>
+						<div class="meta">Culture</div>
+						<h3>Public library opens archive collection with digitized posters</h3>
+						<div class="source">Saved last week</div>
+					</article>
+				</section>
+			</main>
+		</div>
+	</body>
+</html>

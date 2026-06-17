@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Mockup 03 - Contact Sheet Briefing</title>
+		<style>
+			@font-face {
+				font-family: 'Alcyone';
+				src:
+					url('../static/Alcyone_Medium/Webfont/Alcyone%20Medium%20webfont/Alcyone-Medium.woff2')
+						format('woff2'),
+					url('../static/Alcyone_Medium/Webfont/Alcyone%20Medium%20webfont/Alcyone-Medium.woff')
+						format('woff');
+				font-weight: 500;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			:root {
+				--paper: #faf9fb;
+				--ink: #1d1a22;
+				--muted: #625d6b;
+				--line: #d9d3df;
+				--soft: #eeeaf1;
+				--green: #c5d3c8;
+				--blue: #becbd8;
+				--gold: #d9c9a8;
+				--rose: #d8bfc7;
+				font-family: 'Alcyone', 'Source Sans 3', Inter, ui-sans-serif, system-ui, sans-serif;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				background: var(--paper);
+				color: var(--ink);
+				font-family: 'Alcyone', 'Source Sans 3', Inter, ui-sans-serif, system-ui, sans-serif;
+			}
+
+			.shell {
+				width: min(1220px, calc(100% - 32px));
+				margin: 0 auto;
+				padding: 20px 0 44px;
+			}
+
+			header {
+				display: grid;
+				grid-template-columns: auto 1fr auto;
+				align-items: center;
+				gap: 24px;
+				min-height: 58px;
+				border-bottom: 1px solid var(--line);
+			}
+
+			.brand {
+				font-size: 20px;
+				font-weight: 800;
+			}
+
+			.search {
+				height: 34px;
+				display: flex;
+				align-items: center;
+				padding: 0 12px;
+				border: 1px solid var(--line);
+				border-radius: 4px;
+				background: var(--soft);
+				color: var(--muted);
+				font-size: 13px;
+			}
+
+			.time,
+			.meta,
+			p,
+			.source {
+				color: var(--muted);
+			}
+
+			.time {
+				font-size: 13px;
+			}
+
+			.intro {
+				display: grid;
+				grid-template-columns: 1fr auto;
+				gap: 24px;
+				align-items: end;
+				padding: 28px 0;
+				border-bottom: 1px solid var(--line);
+			}
+
+			h1,
+			h2,
+			h3 {
+				margin: 0;
+				letter-spacing: 0;
+			}
+
+			h1 {
+				font-size: 56px;
+				line-height: 0.98;
+			}
+
+			h2 {
+				font-size: 34px;
+				line-height: 1.04;
+			}
+
+			h3 {
+				font-size: 18px;
+				line-height: 1.18;
+			}
+
+			p {
+				margin: 12px 0 0;
+				line-height: 1.48;
+			}
+
+			.tabs {
+				display: flex;
+				gap: 8px;
+			}
+
+			.tab {
+				padding: 8px 12px;
+				border: 1px solid var(--line);
+				border-radius: 4px;
+				color: var(--muted);
+				font-size: 13px;
+			}
+
+			main {
+				display: grid;
+				grid-template-columns: 1fr 320px;
+				gap: 28px;
+				padding-top: 28px;
+			}
+
+			.sheet {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 22px;
+			}
+
+			.feature {
+				grid-column: span 2;
+				grid-row: span 2;
+			}
+
+			.tile {
+				display: grid;
+				align-content: start;
+				min-height: 240px;
+				padding-bottom: 20px;
+				border-bottom: 1px solid var(--line);
+			}
+
+			.image {
+				aspect-ratio: 1;
+				margin-bottom: 14px;
+				border: 1px solid var(--line);
+				border-radius: 3px;
+				background: var(--green);
+			}
+
+			.feature .image {
+				aspect-ratio: 1.18;
+				background:
+					linear-gradient(135deg, color-mix(in srgb, var(--blue) 80%, white), transparent 50%),
+					linear-gradient(20deg, var(--gold), var(--rose));
+			}
+
+			.tile:nth-child(2) .image,
+			.tile:nth-child(6) .image {
+				background: var(--blue);
+			}
+
+			.tile:nth-child(3) .image {
+				background: var(--gold);
+			}
+
+			.tile:nth-child(4) .image {
+				background: var(--rose);
+			}
+
+			.meta {
+				margin-bottom: 8px;
+				font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+				font-size: 12px;
+				text-transform: uppercase;
+			}
+
+			.source {
+				margin-top: 10px;
+				font-size: 13px;
+			}
+
+			aside {
+				border-left: 1px solid var(--line);
+				padding-left: 28px;
+			}
+
+			.aside-story {
+				padding: 18px 0;
+				border-bottom: 1px solid var(--line);
+			}
+
+			@media (max-width: 960px) {
+				header,
+				.intro,
+				main {
+					grid-template-columns: 1fr;
+				}
+
+				.sheet {
+					grid-template-columns: repeat(2, 1fr);
+				}
+
+				aside {
+					border-left: 0;
+					padding-left: 0;
+				}
+
+				.search {
+					display: none;
+				}
+
+				h1 {
+					font-size: 38px;
+				}
+			}
+
+			@media (max-width: 620px) {
+				.sheet,
+				.feature {
+					display: grid;
+					grid-template-columns: 1fr;
+					grid-column: auto;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="shell">
+			<header>
+				<div class="brand">Brief Index</div>
+				<div class="search">Search agencies, topics, source IDs</div>
+				<div class="time">Updated 11:20</div>
+			</header>
+
+			<section class="intro">
+				<h1>A contact sheet for skimming today’s evidence</h1>
+				<div class="tabs">
+					<span class="tab">Briefs</span>
+					<span class="tab">Media</span>
+					<span class="tab">Queue</span>
+				</div>
+			</section>
+
+			<main>
+				<section class="sheet">
+					<article class="tile feature">
+						<div class="image"></div>
+						<div class="meta">Infrastructure</div>
+						<h2>City publishes station works timeline and street access plan</h2>
+						<p>
+							The image grid makes stories feel collectible without turning the page into a gallery.
+						</p>
+						<div class="source">Transport authority</div>
+					</article>
+					<article class="tile">
+						<div class="image"></div>
+						<div class="meta">Culture</div>
+						<h3>Public library opens archive collection with digitized posters</h3>
+					</article>
+					<article class="tile">
+						<div class="image"></div>
+						<div class="meta">Weather</div>
+						<h3>Flood maps refreshed after new river sensor readings</h3>
+					</article>
+					<article class="tile">
+						<div class="image"></div>
+						<div class="meta">Business</div>
+						<h3>Port authority lists new cargo rules for autumn permits</h3>
+					</article>
+					<article class="tile">
+						<div class="image"></div>
+						<div class="meta">Science</div>
+						<h3>University publishes satellite notes on coastal erosion</h3>
+					</article>
+					<article class="tile">
+						<div class="image"></div>
+						<div class="meta">Government</div>
+						<h3>Cabinet office adds late amendments to procurement rules</h3>
+					</article>
+				</section>
+
+				<aside>
+					<div class="meta">Briefing rail</div>
+					<article class="aside-story">
+						<h3>Grant recipients must publish quarterly emissions notes</h3>
+						<div class="source">Environment memo</div>
+					</article>
+					<article class="aside-story">
+						<h3>School meal tender pauses after supplier questions</h3>
+						<div class="source">Procurement desk</div>
+					</article>
+					<article class="aside-story">
+						<h3>Emergency board updates the national storm readiness guide</h3>
+						<div class="source">Public notice</div>
+					</article>
+				</aside>
+			</main>
+		</div>
+	</body>
+</html>

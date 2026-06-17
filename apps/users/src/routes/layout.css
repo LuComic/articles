@@ -2,11 +2,46 @@
 @import 'tailwindcss';
 
 @font-face {
-	font-family: 'Mg12';
+	font-family: 'Alcyone';
 	src:
-		url('/Mg¹²_Medium/Webfont/Mg¹²%20Medium%20webfont/Mg¹²-Medium.woff2') format('woff2'),
-		url('/Mg¹²_Medium/Webfont/Mg¹²%20Medium%20webfont/Mg¹²-Medium.woff') format('woff');
+		url('/Alcyone_Medium/Webfont/Alcyone%20Medium%20webfont/Alcyone-Medium.woff2') format('woff2'),
+		url('/Alcyone_Medium/Webfont/Alcyone%20Medium%20webfont/Alcyone-Medium.woff') format('woff');
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
+}
+
+:root {
+	--paper: #faf9fb;
+	--ink: #1d1a22;
+	--muted: #625d6b;
+	--line: #d9d3df;
+	--soft: #eeeaf1;
+	--green: #c5d3c8;
+	--blue: #becbd8;
+	--gold: #d9c9a8;
+	--rose: #d8bfc7;
+	--body-font: 'Libre Franklin Variable', Inter, ui-sans-serif, system-ui, sans-serif;
+	--display-font: 'Alcyone', 'Libre Franklin Variable', Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+.dashboard {
+	font-family: var(--body-font);
+}
+
+.display-font {
+	font-family: var(--display-font);
+	font-weight: 600;
+}
+
+.meta,
+.published {
+	font-family: var(--body-font);
+	color: var(--muted);
+	font-size: 12px;
+}
+
+.published {
+	color: var(--ink);
+	font-size: 13px;
 }
