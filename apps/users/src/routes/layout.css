@@ -1,5 +1,12 @@
-@import '@fontsource/libre-franklin/400.css';
-@import '@fontsource/libre-franklin/500.css';
-@import '@fontsource/libre-franklin/700.css';
-@import '@fontsource/libre-franklin/800.css';
+@font-face {
+	font-family: 'Mg12';
+	src:
+		url('/Mg¹²_Medium/Webfont/Mg¹²%20Medium%20webfont/Mg¹²-Medium.woff2') format('woff2'),
+		url('/Mg¹²_Medium/Webfont/Mg¹²%20Medium%20webfont/Mg¹²-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@import '@fontsource/libre-franklin';
 @import 'tailwindcss';
