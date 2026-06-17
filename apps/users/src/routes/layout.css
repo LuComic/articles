@@ -1,3 +1,6 @@
+@import '@fontsource-variable/libre-franklin/wght.css';
+@import 'tailwindcss';
+
 @font-face {
 	font-family: 'Mg12';
 	src:
@@ -7,6 +10,3 @@
 	font-style: normal;
 	font-display: swap;
 }
-
-@import '@fontsource/libre-franklin';
-@import 'tailwindcss';

@@ -39,13 +39,11 @@
 
 		<main class="grid grid-cols-1 gap-7 pt-7 lg:grid-cols-[1.6fr_1fr]">
 			<section>
-				<article
-					class="grid min-h-72 grid-cols-1 gap-6 border-b border-(--line) pb-7 md:grid-cols-[1fr_280px]"
-				>
+				<article class="min-h-72 grid-cols-1 gap-6 border-b border-(--line) pb-7">
 					<div>
 						<div class="meta mb-2">Viimati avaldatud</div>
 						{#if data.lead}
-							<h2 class="mb-3 text-3xl font-bold md:text-4xl">{data.lead.title}</h2>
+							<h2 class="mb-3 text-3xl font-semibold md:text-4xl">{data.lead.title}</h2>
 							<p class="text-(--muted)">{data.lead.summary}</p>
 							<div class="published mt-4">{data.lead.publishedLabel}</div>
 						{:else}
@@ -65,11 +63,6 @@
 								</span>
 							{/each}
 						</div>
-					</div>
-
-					<div class="brief-card">
-						<span>Oleku ülevaade</span>
-						<strong>{data.status.activeItems} aktiivset lugu</strong>
 					</div>
 				</article>
 
@@ -122,13 +115,12 @@
 		--muted: #586763;
 		--line: #cbd8d3;
 		--soft: #e7efec;
-		font-family: 'Libre Franklin', Inter, ui-sans-serif, system-ui, sans-serif;
+		font-family: 'Libre Franklin Variable', Inter, ui-sans-serif, system-ui, sans-serif;
 	}
 
 	.meta,
-	.published,
-	.brief-card {
-		font-family: 'Libre Franklin', Inter, ui-sans-serif, system-ui, sans-serif;
+	.published {
+		font-family: 'Libre Franklin Variable', Inter, ui-sans-serif, system-ui, sans-serif;
 	}
 
 	.meta,
@@ -141,36 +133,5 @@
 	.published {
 		color: var(--ink);
 		font-size: 13px;
-	}
-
-	.brief-card {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-		min-height: 230px;
-		border: 1px solid var(--line);
-		border-radius: 3px;
-		background:
-			repeating-linear-gradient(
-				0deg,
-				transparent,
-				transparent 18px,
-				color-mix(in srgb, var(--line) 65%, transparent) 19px
-			),
-			var(--soft);
-		padding: 18px;
-		text-transform: uppercase;
-	}
-
-	.brief-card strong {
-		font-family: 'Libre Franklin', Inter, ui-sans-serif, system-ui, sans-serif;
-		font-size: 42px;
-		font-weight: 700;
-		text-transform: none;
-	}
-
-	.brief-card span {
-		color: var(--muted);
-		font-size: 11px;
 	}
 </style>

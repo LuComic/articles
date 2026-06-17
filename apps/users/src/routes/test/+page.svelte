@@ -42,6 +42,6 @@
 
 <style>
 	.fancy-font {
-		font-family: 'Mg12', 'Libre Franklin', Inter, ui-sans-serif, system-ui, sans-serif;
+		font-family: 'Mg12', 'Libre Franklin Variable', Inter, ui-sans-serif, system-ui, sans-serif;
 	}
 </style>
