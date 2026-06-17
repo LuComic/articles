@@ -13,7 +13,7 @@
 </script>
 
 <div class="dashboard min-h-screen bg-(--paper) text-(--ink)">
-	<div class="mx-auto w-[min(1220px,calc(100%-32px))] py-5 pb-10">
+	<div class="mx-auto w-full max-w-7xl px-4 py-5 pb-10 md:w-4/5 md:px-0">
 		<header
 			class="grid min-h-14 grid-cols-1 items-center gap-4 border-b border-(--line) pb-4 md:grid-cols-[auto_1fr] md:gap-6 md:pb-0"
 		>
