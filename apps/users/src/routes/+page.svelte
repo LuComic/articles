@@ -1,5 +1,14 @@
 <script lang="ts">
 	import AsbstractImage from '$lib/components/AsbstractImage.svelte';
+	import {
+		ANDMED,
+		DEFAULT_COLORS,
+		KLIIMA,
+		MAJANDUS,
+		RAHANDUS,
+		TURVALISUS,
+		VALITSUS
+	} from '$lib/colors.js';
 	import type { PageProps } from './$types.js';
 
 	let { data }: PageProps = $props();
@@ -9,6 +18,56 @@
 
 	function markImageFailed(url: string) {
 		failedImages = new Set([...failedImages, url]);
+	}
+
+	const recentTopic = 'Hiljutine';
+	let selectedTopic = $state('Hiljutine');
+	let topicBarWidth = $state(0);
+	const topics = [
+		recentTopic,
+		'Valitsus',
+		'Rahandus',
+		'Majandus',
+		'Kliima',
+		'Turvalisus',
+		'Andmed'
+	];
+
+	const topicButtonColumns = $derived(topicBarWidth < 520 ? 4 : topicBarWidth < 800 ? 5 : 6);
+	const topicTileIndexes = $derived(
+		Array.from({ length: topicButtonColumns * 2 }, (_, index) => index)
+	);
+
+	function colorsForTopicButton(topic: string): string[] {
+		const normalized = topic.toLocaleLowerCase('et-EE');
+
+		if (normalized.includes('rahandus')) return RAHANDUS;
+		if (normalized.includes('majandus')) return MAJANDUS;
+		if (normalized.includes('kliima')) return KLIIMA;
+		if (normalized.includes('turvalisus')) return TURVALISUS;
+		if (normalized.includes('andmed')) return ANDMED;
+		if (normalized.includes('valitsus')) return VALITSUS;
+
+		return DEFAULT_COLORS;
+	}
+
+	function topicTileColor(topic: string, index: number): string {
+		const palette = colorsForTopicButton(topic);
+
+		return palette[topicTilePaletteIndex(topic, index, palette.length)];
+	}
+
+	function topicTilePaletteIndex(topic: string, index: number, paletteLength: number): number {
+		let seed = 0;
+
+		for (let charIndex = 0; charIndex < topic.length; charIndex += 1) {
+			seed = Math.imul(seed ^ topic.charCodeAt(charIndex), 2654435761);
+		}
+
+		let mixed = Math.imul(seed + index * 1013904223, 2246822519);
+		mixed ^= mixed >>> 15;
+
+		return Math.abs(mixed) % paletteLength;
 	}
 </script>
 
@@ -24,6 +83,42 @@
 				placeholder="Otsi teemasid, uudiseid, märksõnu..."
 			/>
 		</header>
+
+		<section
+			class="sticky top-0 left-0 z-10 flex w-full items-center justify-between border-b border-(--line)"
+			bind:clientWidth={topicBarWidth}
+		>
+			{#each topics as topic, index (topic)}
+				<button
+					class={`relative w-full overflow-hidden px-2 py-1 font-medium ${
+						selectedTopic === topic
+							? `${topic !== recentTopic ? 'text-white' : 'bg-(--ink) text-white'}`
+							: 'bg-(--paper)'
+					}
+							${index === 0 ? 'border-l' : ''} border-r border-(--line)
+					`}
+					type="button"
+					onclick={() => {
+						selectedTopic = topic;
+					}}
+				>
+					{#if selectedTopic === topic && topic !== recentTopic}
+						<div
+							class="absolute inset-0 grid grid-rows-2"
+							style:grid-template-columns={`repeat(${topicButtonColumns}, minmax(0, 1fr))`}
+							aria-hidden="true"
+						>
+							{#each topicTileIndexes as tileIndex (tileIndex)}
+								<div style:background-color={topicTileColor(topic, tileIndex)}></div>
+							{/each}
+						</div>
+						<span class="relative px-2 backdrop-blur-2xl">{topic}</span>
+					{:else}
+						<span class="relative">{topic}</span>
+					{/if}
+				</button>
+			{/each}
+		</section>
 
 		<section class="w-full border-b border-(--line) py-7">
 			<h1 class="display-font text-4xl font-medium md:text-5xl">
@@ -48,8 +143,10 @@
 							<AsbstractImage class="mb-3 aspect-[1.18]" topic={data.lead.topic} />
 						{/if}
 						<h2 class="display-font mb-3 text-3xl font-medium md:text-4xl">
-							<span class="underline underline-offset-4">Hiljutine: </span>
-							{data.lead.title}
+							<a class="hover:underline hover:underline-offset-4" href={data.lead.url}>
+								<span class="underline underline-offset-4">Hiljutine: </span>
+								{data.lead.title}
+							</a>
 						</h2>
 						<p class="text-(--muted)">{data.lead.summary}</p>
 						<div class="published mt-4">{data.lead.publishedLabel}</div>
@@ -90,13 +187,11 @@
 			<aside class="border-(--line) lg:border-l lg:pl-7">
 				<div class="meta">Veel uudiseid</div>
 				{#each data.randomNews as item (item.url)}
-					<article class="border-b border-(--line) py-4.5">
-						<div>
-							<h3 class="display-font text-lg font-medium">
-								<a class="hover:underline hover:underline-offset-4" href={item.url}>{item.title}</a>
-							</h3>
-							<div class="mt-2.5 text-sm text-(--muted)">{item.sourceName}</div>
-						</div>
+					<article class="flex flex-col gap-2 border-b border-(--line) py-4">
+						<h3 class="display-font text-lg font-medium">
+							<a class="hover:underline hover:underline-offset-4" href={item.url}>{item.title}</a>
+						</h3>
+						<div class="text-sm text-(--muted)">{item.sourceName}</div>
 					</article>
 				{/each}
 

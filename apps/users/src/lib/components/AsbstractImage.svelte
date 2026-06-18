@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import {
 		ANDMED,
 		DEFAULT_COLORS,
@@ -32,12 +31,11 @@
 
 	let { topic = null, rounding = '', class: className = '' }: Props = $props();
 
-	let mounted = $state(false);
 	let width = $state(0);
 	let height = $state(0);
 	let tileColors = $state<string[]>([]);
 
-	const columns = $derived(width < 150 ? 6 : width < 260 ? 8 : width < 420 ? 10 : 12);
+	const columns = $derived(width < 150 ? 10 : width < 260 ? 12 : width < 420 ? 14 : 16);
 	const rows = $derived(
 		width > 0 && height > 0 ? Math.max(2, Math.floor((columns * height) / width)) : columns
 	);
@@ -52,16 +50,22 @@
 		).sort(() => Math.random() - 0.5);
 	});
 
-	onMount(() => {
-		mounted = true;
-	});
-
 	const cornerClasses = $derived(cornerClassesForRounding(rounding));
+	const containerRoundingClass = $derived(containerClassForRounding(rounding));
 
 	function cornerClassesForRounding(rounding: string) {
 		const normalized = rounding.replace(/^rounded-?/, '');
 
 		return CORNER_CLASSES[normalized] ?? CORNER_CLASSES[''];
+	}
+
+	function containerClassForRounding(rounding: string) {
+		const normalized = rounding.replace(/^rounded-?/, '');
+
+		if (normalized === 'none') return '';
+		if (!normalized) return 'rounded';
+
+		return `rounded-${normalized}`;
 	}
 
 	function getCornerClass(index: number): string {
@@ -75,23 +79,28 @@
 </script>
 
 <div
-	class={`relative w-full ${className}`}
+	class={`relative w-full overflow-hidden ${containerRoundingClass} ${className}`}
 	bind:clientWidth={width}
 	bind:clientHeight={height}
 	aria-hidden="true"
 >
 	<div
-		class="absolute inset-0 grid content-center"
+		class="absolute inset-0 grid"
 		style:grid-template-columns={`repeat(${columns}, minmax(0, 1fr))`}
-		style:grid-template-rows={`repeat(${rows}, min-content)`}
+		style:grid-template-rows={`repeat(${rows}, minmax(0, 1fr))`}
 	>
 		{#each tiles as _, i (i)}
-			{#if mounted}
-				<div
-					class={`aspect-square w-full ${getCornerClass(i)}`}
-					style:background-color={tileColors[i]}
-				></div>
-			{/if}
+			<div
+				class={`abstract-tile ${getCornerClass(i)}`}
+				style:background-color={tileColors[i]}
+			></div>
 		{/each}
 	</div>
 </div>
+
+<style>
+	.abstract-tile {
+		width: calc(100% + 1px);
+		height: calc(100% + 1px);
+	}
+</style>
