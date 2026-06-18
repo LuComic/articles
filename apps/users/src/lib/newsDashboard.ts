@@ -81,24 +81,14 @@ function toCard(article: ArticleRecord, row: UrlRow | undefined, index: number):
 		publishedAt,
 		publishedLabel: formatPublishedAt(publishedAt),
 		url: article.final_url || article.url,
-		imageUrl: firstValidImage(article, row),
+		imageUrl: firstValidImage(article),
 		readMinutes: Math.max(1, Math.ceil(article.body_text.length / 900)),
 		topic: topicFor(sourceName, sourceDomain, index)
 	};
 }
 
-function firstValidImage(article: ArticleRecord, row: UrlRow | undefined): string | null {
-	const rowImages = [
-		row?.image,
-		row?.image_url,
-		row?.poster,
-		row?.poster_url,
-		row?.thumbnail,
-		row?.thumbnail_url
-	];
-	const candidates = [...article.images, ...rowImages];
-
-	for (const candidate of candidates) {
+function firstValidImage(article: ArticleRecord): string | null {
+	for (const candidate of article.images) {
 		if (typeof candidate !== 'string') continue;
 		if (isValidImageUrl(candidate)) return candidate;
 	}

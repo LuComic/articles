@@ -6,13 +6,11 @@
 		MAJANDUS,
 		RAHANDUS,
 		TURVALISUS,
-		VALITSUS,
-		CORNER_CLASSES
+		VALITSUS
 	} from '$lib/colors.js';
 
 	type Props = {
 		topic?: string | null;
-		rounding?: string;
 		class?: string;
 	};
 
@@ -29,16 +27,16 @@
 		return DEFAULT_COLORS;
 	}
 
-	let { topic = null, rounding = '', class: className = '' }: Props = $props();
+	let { topic = null, class: className = '' }: Props = $props();
 
 	let width = $state(0);
 	let height = $state(0);
 	let tileColors = $state<string[]>([]);
 	let tileCornerClasses = $state<string[]>([]);
 
-	const columns = $derived(width < 150 ? 10 : width < 260 ? 12 : width < 420 ? 14 : 16);
+	const columns = $derived(width > 0 ? Math.max(10, Math.round(width / 28)) : 16);
 	const rows = $derived(
-		width > 0 && height > 0 ? Math.max(2, Math.floor((columns * height) / width)) : columns
+		width > 0 && height > 0 ? Math.max(2, Math.round((columns * height) / width)) : 6
 	);
 	const tileWidth = $derived(width > 0 ? Math.ceil(width / columns) : 0);
 	const tileHeight = $derived(height > 0 ? Math.ceil(height / rows) : 0);
@@ -68,40 +66,12 @@
 			() => randomCornerClasses[Math.floor(Math.random() * randomCornerClasses.length)]
 		);
 	});
-
-	const cornerClasses = $derived(cornerClassesForRounding(rounding));
-	const containerRoundingClass = $derived(containerClassForRounding(rounding));
-
-	function cornerClassesForRounding(rounding: string) {
-		const normalized = rounding.replace(/^rounded-?/, '');
-
-		return CORNER_CLASSES[normalized] ?? CORNER_CLASSES[''];
-	}
-
-	function containerClassForRounding(rounding: string) {
-		const normalized = rounding.replace(/^rounded-?/, '');
-
-		if (normalized === 'none') return '';
-		if (!normalized) return 'rounded';
-
-		return `rounded-${normalized}`;
-	}
-
-	function getCornerClass(index: number): string {
-		if (index === 0) return cornerClasses.tl;
-		if (index === columns - 1) return cornerClasses.tr;
-		if (index === tileCount - columns) return cornerClasses.bl;
-		if (index === tileCount - 1) return cornerClasses.br;
-
-		return '';
-	}
 </script>
 
 <div
-	class={`relative w-full overflow-hidden ${containerRoundingClass} ${className}`}
+	class={`abstract-banner relative block w-full overflow-hidden rounded-sm ${className}`}
 	bind:clientWidth={width}
 	bind:clientHeight={height}
-	aria-hidden="true"
 >
 	<div
 		class="absolute inset-0 grid"
@@ -110,16 +80,33 @@
 	>
 		{#each tiles as _, i (i)}
 			<div
-				class={`abstract-tile ${getCornerClass(i)} ${tileCornerClasses[i]}`}
+				class={`abstract-tile ${tileCornerClasses[i]}`}
 				style:background-color={tileColors[i]}
 			></div>
 		{/each}
 	</div>
+	<div class="absolute inset-0 grid place-items-center">
+		<span
+			class="topic-label display-font px-4 py-2 text-center text-2xl font-medium capitalize backdrop-blur-sm md:text-4xl"
+		>
+			{topic}
+		</span>
+	</div>
 </div>
 
 <style>
+	.abstract-banner {
+		min-height: 100px;
+		height: min(32vw, 200px);
+	}
+
 	.abstract-tile {
 		width: 100%;
 		height: 100%;
+	}
+
+	.topic-label {
+		max-width: min(90%, 900px);
+		background: color-mix(in srgb, white 34%, transparent);
 	}
 </style>

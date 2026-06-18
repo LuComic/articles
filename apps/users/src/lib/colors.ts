@@ -400,6 +400,19 @@ export const ANDMED = [
 	'#223F70'
 ];
 
+export const HILJUTINE = [
+	'#56515D',
+	'#4E4A55',
+	'#47434D',
+	'#403C45',
+	'#39363E',
+	'#322F37',
+	'#2C2930',
+	'#26232A',
+	'#211E25',
+	'#1D1A22'
+];
+
 export const DEFAULT_COLORS = VALITSUS;
 
 type Corner = 'tl' | 'tr' | 'bl' | 'br';
